@@ -6,14 +6,17 @@ import java.util.regex.Pattern;
 public class Parser {
 
 
-	protected Expression splitStringByOperation(String expression, String operation) {
+	
+
+
+	public Expression splitStringByOperation(String expression, String operation) {
 		Pattern compiledPattern = Pattern.compile("\\" + operation);
 		Matcher matcher = compiledPattern.matcher(expression);
 		if (matcher.find()) {
 			String leftPart = expression.substring(0, matcher.start());
 			String rightPart = expression.substring(matcher.end(), expression.length());
-			MultiExpression left = new MultiExpression(leftPart);
-			MultiExpression right = new MultiExpression(rightPart);
+			Expression left = splitStringByOperation(leftPart, "+" );
+			Expression right = splitStringByOperation(rightPart, "+" );
 			return new SimpleExpression(operation, left, right);
 		}
 
@@ -23,8 +26,8 @@ public class Parser {
 		if (matcherPlus.find()) {
 			String leftPart = expression.substring(0, matcherPlus.start());
 			String rightPart = expression.substring(matcherPlus.end(), expression.length());
-			MultiExpression left = new MultiExpression(leftPart);
-			MultiExpression right = new MultiExpression(rightPart);
+			Expression left = splitStringByOperation(leftPart, "+" );
+			Expression right = splitStringByOperation(rightPart, "+" );
 			return new SimpleExpression(operationPlus, left, right);
 		}
 
@@ -34,8 +37,8 @@ public class Parser {
 		if (matcherMinus.find()) {
 			String leftPart = expression.substring(0, matcherMinus.start());
 			String rightPart = expression.substring(matcherMinus.end(), expression.length());
-			MultiExpression left = new MultiExpression(leftPart);
-			MultiExpression right = new MultiExpression(rightPart);
+			Expression left = splitStringByOperation(leftPart, "+" );
+			Expression right = splitStringByOperation(rightPart, "+" );
 			return new SimpleExpression(operationMinus, left, right);
 		}
 
@@ -45,8 +48,8 @@ public class Parser {
 		if (matcherMultiplicationSign.find()) {
 			String leftPart = expression.substring(0, matcherMultiplicationSign.start());
 			String rightPart = expression.substring(matcherMultiplicationSign.end(), expression.length());
-			MultiExpression left = new MultiExpression(leftPart);
-			MultiExpression right = new MultiExpression(rightPart);
+			Expression left = splitStringByOperation(leftPart, "+" );
+			Expression right = splitStringByOperation(rightPart, "+" );
 			return new SimpleExpression(operationMultiplicat, left, right);
 		}
 
@@ -56,8 +59,8 @@ public class Parser {
 		if (matcherDivisionSign.find()) {
 			String leftPart = expression.substring(0, matcherDivisionSign.start());
 			String rightPart = expression.substring(matcherDivisionSign.end(), expression.length());
-			MultiExpression left = new MultiExpression(leftPart);
-			MultiExpression right = new MultiExpression(rightPart);
+			Expression left = splitStringByOperation(leftPart, "+" );
+			Expression right = splitStringByOperation(rightPart, "+" );
 			return new SimpleExpression(string, left, right);
 		}
 
