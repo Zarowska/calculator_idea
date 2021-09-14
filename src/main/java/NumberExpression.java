@@ -1,8 +1,8 @@
 
 
-public class NumberExpression implements Expression {
+public final class NumberExpression implements Expression {
 
-    private String number;
+    private final String number;
 
     public NumberExpression(String number) {
         this.number = number;

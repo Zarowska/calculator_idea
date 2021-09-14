@@ -3,15 +3,15 @@ public class App {
     public static void main(String[] args) {
         Parser parser = new Parser();
 
-        String expression = "1";//ok
+        String expression = "-1";//?
         Expression e = parser.splitStringByOperation(expression);
         double r = e.calculate();
         System.out.println("1= " +  r);
-
-        expression = "1+1";//ok
-        e = parser.splitStringByOperation(expression);
-        r = e.calculate();
-        System.out.println("2= " + r);
+//
+//        expression = "-1+1";//?
+//        e = parser.splitStringByOperation(expression);
+//        r = e.calculate();
+//        System.out.println("0 = " + r);
 
         expression = "2*2+1";
         e = parser.splitStringByOperation(expression);
