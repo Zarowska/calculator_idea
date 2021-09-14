@@ -1,14 +1,28 @@
 public class App {
 
     public static void main(String[] args) {
-        //String expression = "1+0*2-10*2/5+2";//ok
-        //String expression = "1*2+6/2-8/4+2-1";//ok
-        String expression = Reader.read();
         Parser parser = new Parser();
-        //Expression parsedExpression = parser.splitStringByOperationOld(expression, "+");
-        Expression parsedExpression = parser.splitStringByOperation(expression);
-        MultiExpression e = new MultiExpression(parsedExpression);
+
+        String expression = "1";//ok
+        Expression e = parser.splitStringByOperation(expression);
         double r = e.calculate();
-        System.out.println(r);
+        System.out.println("1= " +  r);
+
+        expression = "1+1";//ok
+        e = parser.splitStringByOperation(expression);
+        r = e.calculate();
+        System.out.println("2= " + r);
+
+        expression = "2*2+1";
+        e = parser.splitStringByOperation(expression);
+        r = e.calculate();
+        System.out.println("5= " + r);
+
+        expression = "1+0*2-10*2/5+2";
+        e = parser.splitStringByOperation(expression);
+        r = e.calculate();
+        System.out.println("-1= " + r);
+
+
     }
 }
