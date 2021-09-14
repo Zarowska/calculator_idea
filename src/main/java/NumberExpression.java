@@ -1,16 +1,16 @@
 
 
-public class NumberExpression  implements Expression{
+public class NumberExpression implements Expression {
 
-	private String number;
+    private String number;
 
-	public NumberExpression(String number) {
-		this.number = number;
-	}
+    public NumberExpression(String number) {
+        this.number = number;
+    }
 
-	@Override
-	public double calculate() {
-			return Double.parseDouble(number);
-	}
+    @Override
+    public double calculate() {
+        return Double.parseDouble(number);
+    }
 
 }
