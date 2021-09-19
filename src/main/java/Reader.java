@@ -10,6 +10,12 @@ public class Reader {
         String str = sc.nextLine();
         sc.close();
 
+        Pattern compiledPatternMinus = Pattern.compile("^\\-");
+        Matcher matcherMinus = compiledPatternMinus.matcher(str);
+        if (matcherMinus.find()) {
+         str = "0"+str;
+        }
+
         Pattern compiledPattern = Pattern.compile("/0");
         Matcher matcher = compiledPattern.matcher(str);
         if (matcher.find()) {
@@ -31,6 +37,10 @@ public class Reader {
             Reader.read();
         }
 
+
+
         return str;
     }
+
+
 }
