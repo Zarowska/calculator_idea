@@ -1,9 +1,7 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
-import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import org.junit.Test;
 
 
 public class AppTest
@@ -24,7 +22,7 @@ public class AppTest
 
     @Test
     public void example1(){
-        Parser parser = new Parser();
-        assertEquals(-1,parser.splitStringByOperation("-1").calculate(),0);
+        Parser parser = new Parser(App.createSupportedOperation());
+        assertEquals(0,parser.splitStringByOperation("1-1").calculate(),0);
     }
 }

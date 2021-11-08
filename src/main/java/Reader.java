@@ -4,6 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Reader {
+    @SuppressWarnings("UnusedReturnValue")
     public static String read() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");

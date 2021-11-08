@@ -1,5 +1,4 @@
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -15,12 +14,9 @@ public class Parser {
         operations.addAll(supportedOperations);
     }
 
-    public Parser() {
-    }
-
     public Expression splitStringByOperation(String expression) {
         for (Operator operation : operations) {
-            Pattern compiledPattern = Pattern.compile( "\\d" + "\\" + operation.asString() + "\\d");
+            @SuppressWarnings("Annotator") Pattern compiledPattern = Pattern.compile( "\\d" + "\\" + operation.asString() + "\\d");
             int indexOfOperation = expression.indexOf(operation.asString());
             Matcher matcher = compiledPattern.matcher(expression);
             if (matcher.find()) {

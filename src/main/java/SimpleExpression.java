@@ -1,4 +1,3 @@
-import java.util.Objects;
 
 public final class SimpleExpression implements Expression {
 
@@ -15,7 +14,7 @@ public final class SimpleExpression implements Expression {
 
     @Override
     public double calculate() {
-      return operator.operate(left.calculate(),right.calculate());
-     }
+        return operator.operate(left.calculate(),right.calculate());
+    }
 
 }

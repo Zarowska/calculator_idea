@@ -1,5 +1,3 @@
-
-
 public final class NumberExpression implements Expression {
 
     private final String number;

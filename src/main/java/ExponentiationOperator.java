@@ -1,6 +1,4 @@
-
-
-public class ExponentiationOperator implements Operator  {
+public class ExponentiationOperator implements Operator {
 
     @Override
     public  double operate(double left, double right) {

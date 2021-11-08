@@ -3,29 +3,24 @@ import java.util.List;
 
 public class App {
 
-
-
-    public static void main(String[] args) {
-
+    public static List<Operator> createSupportedOperation() {
         List<Operator> supportedOperation = new ArrayList<>();
-        supportedOperation.add(new PlusOperator()) ;
+        supportedOperation.add(new PlusOperator());
         supportedOperation.add(new MinusOperator());
         supportedOperation.add(new MultiplyOperator());
         supportedOperation.add(new DivideOperator());
         supportedOperation.add(new ExponentiationOperator());
+        return supportedOperation;
+    }
 
-        Parser parser = new Parser(supportedOperation);
+    public static void main(String[] args) {
 
-
-//        String  expression0 = Reader.read();
-//        Expression e0 = parser.splitStringByOperation(expression0);
-//        double r0 = e0.calculate();
-//       System.out.println(r0);
+        Parser parser = new Parser( createSupportedOperation());
 
         String expression = "-1";
         Expression expressionParsed = parser.splitStringByOperation(expression);
         double result = expressionParsed.calculate();
-        System.out.println("-1= " +  result);
+        System.out.println("-1= " + result);
 
         expression = "-1+1";
         expressionParsed = parser.splitStringByOperation(expression);
